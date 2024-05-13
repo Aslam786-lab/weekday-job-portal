@@ -1,5 +1,6 @@
 import './App.css'
 import JDFilter from './Components/Filter/JDFilter'
+import JDList from './Components/JDList'
 
 function App() {
  
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <JDFilter />
-      {/* <JDList /> */}
+      <JDList />
     </>
   )
 }

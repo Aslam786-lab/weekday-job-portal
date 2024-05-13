@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid } from '@mui/material'
 import { filterObject } from '../../constants'
 import SelectionFilter from './SelectionFilter'
+import CompanySearch from './CompanySearch'
 
 function JDFilter() {
   return (
@@ -9,6 +10,7 @@ function JDFilter() {
         {filterObject.map((filterItem, index) => (
             <SelectionFilter key={index} filterItem={filterItem} index={index} />
         ))}
+        <CompanySearch />
     </Grid>
   )
 }
