@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+#tags-outlined {
+  border-right: 2px solid rgb(235, 235, 228);
+}
+#tags-outlined::placeholder {
+  font-size: 12px;
+}
+.autocomplete-container {
+  margin: 0;
+}
+
+.autocomplete-container .MuiAutocomplete-popupIndicator:hover {
+  background-color: transparent;
+}
+
+.autocomplete-container .MuiAutocomplete-tag {
+  border-radius: 4px;
+}
+
+.autocomplete-container .MuiPopover-paper {
+  margin-top: 10px;
+}
