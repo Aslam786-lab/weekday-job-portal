@@ -3,6 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     jdList: [],
     isLoading: false,
+    offset: 0,
+    totalCount: 0,
+    filters: {},
 }
 
 const jdSlice = createSlice({
@@ -13,10 +16,14 @@ const jdSlice = createSlice({
             state.isLoading = true;
         },
         fetchJdSuccess: (state, action) => {
-            state.jdList = action.payload.filteredJd;
+            state.jdList = [...state.jdList, ...action.payload.filteredJd];
             state.isLoading = false;
+            state.offset = action.payload.offset;
+            state.totalCount = action.payload.totalCount;
         },
-        
+        applyFilter: (state, action) => {
+            state.filters = {...state.filters, ...action.payload}
+        }
     }
 })
 

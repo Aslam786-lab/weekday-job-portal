@@ -1,10 +1,15 @@
+import React, { useEffect, useState } from 'react'
 import { Autocomplete, Grid, Paper, TextField } from '@mui/material'
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { useDispatch } from 'react-redux';
 
 
+export default function SelectionFilter({ filterItem, index, getFilterItem }) {
+ 
 
-
-export default function SelectionFilter({ filterItem, index }) {
+  const handleChange = (event, newValue) => {
+    getFilterItem(filterItem.placeholder.replaceAll(" ",""), newValue);
+  };
 
   
   return (
@@ -18,7 +23,7 @@ export default function SelectionFilter({ filterItem, index }) {
         multiple
         id="tags-outlined"
         options={filterItem.options}
-        // onChange={handleChange}
+        onChange={handleChange}
         getOptionLabel={(option) => option}
         filterSelectedOptions
         popupIcon={<KeyboardArrowDownIcon color="disabled" />}

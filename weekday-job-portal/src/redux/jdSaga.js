@@ -3,6 +3,8 @@ import { fetchJdSuccess } from "./jdState";
 
 function* fetchJd() {
   try {
+    const offset = yield select(state => state.jd.offset);
+    const limit = 10;
 
     const response = yield call(
       fetch,
@@ -13,14 +15,19 @@ function* fetchJd() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          limit: 10,
-          offset: 0,
+          limit: limit,
+          offset: offset,
         }),
       }
     );
     const data = yield response.json();
-    yield put(fetchJdSuccess({filteredJd: data.jdList }));
-    
+    if (data && data.jdList) {
+      const filteredJd = data.jdList.filter(
+        (item) => !Object.values(item).includes(null)
+      );
+      const newOffset = offset + limit;
+      yield put(fetchJdSuccess({filteredJd, offset: newOffset, totalCount: data.totalCount }));
+    }
   } catch (error) {
     console.error(error);
   }
