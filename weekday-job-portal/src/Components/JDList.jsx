@@ -24,7 +24,10 @@ export default function JDList() {
       {filteredJdList.length ? 
       filteredJdList.map((jdItem, index) => (
         <JDItem key={index} jdItem={jdItem} jdList={filteredJdList} index={index}/>
-      )) : <CircularProgress />}
+      )) : 
+      <Grid item sx={{ margin: 'auto' }}>
+      <CircularProgress/>
+    </Grid>}
     </Grid>
   )
 }

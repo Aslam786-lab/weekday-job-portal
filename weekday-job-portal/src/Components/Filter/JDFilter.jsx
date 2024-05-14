@@ -16,8 +16,13 @@ export default function JDFilter() {
     searchcompanyname: ''
   });
 
-  const getFilterItem = (placeholderVal,newValue) => {
-    setFilters({...filters, [placeholderVal.toLowerCase()]: newValue})
+  const getFilterItem = (placeholderVal, newValue) => {
+    setFilters(prevFilters => {
+      return {
+        ...prevFilters,
+        [placeholderVal.toLowerCase()]: newValue,
+      };
+    });
   };
 
   useEffect(() => {
@@ -29,7 +34,7 @@ export default function JDFilter() {
       {filterObject.map((filterItem, index) => (
         <SelectionFilter key={index} filterItem={filterItem} index={index} getFilterItem={getFilterItem}/>
       ))}
-      <CompanySearch />
+      <CompanySearch getFilterItem={getFilterItem}/>
     </Grid>
   )
 }

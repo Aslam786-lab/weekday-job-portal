@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import { Autocomplete, Grid, Paper, TextField } from '@mui/material'
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useDispatch } from 'react-redux';
 
 
 export default function SelectionFilter({ filterItem, index, getFilterItem }) {

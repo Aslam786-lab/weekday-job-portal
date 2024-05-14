@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
-import React from "react";
+import image from '../assets/image.png';
+import image2 from '../assets/image2.png';
 
 export default function JDFooter({minimunExp}) {
   return (
@@ -42,6 +43,7 @@ export default function JDFooter({minimunExp}) {
             backgroundColor: "#1307f2" // Remove the hover effect by keeping the same background color
           }
         }}
+        startIcon={<AccountCircleIcon/>  }
       >
         <Typography
           fontSize={"16px"}
@@ -50,6 +52,15 @@ export default function JDFooter({minimunExp}) {
           Unlock referral asks
         </Typography>
       </Button>
+    </Box>
+  );
+}
+
+function AccountCircleIcon() {
+  return (
+    <Box display={'flex'} justifyContent={'center'} alignItems={'center'} >
+      <img style={{marginRight: '5px', borderRadius: '50%', opacity:'0.5'}} width={20} height={20} src={image} alt="Image 1" />
+      <img style={{ borderRadius: '50%', opacity:'0.5'}}width={20} height={20} src={image2} alt="Image 2" />
     </Box>
   );
 }

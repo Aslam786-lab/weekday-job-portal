@@ -21,6 +21,10 @@ export default function getFilteredJd(filters, jdList) {
       if (filters.roles.length > 0 &&  !filters.roles.some(role => jd.jobRole.toLowerCase() === role.toLowerCase())) {
         return false;
       }
+
+      if(filters.searchcompanyname.length > 0 && !jd.companyName.toLowerCase().includes(filters.searchcompanyname.toLowerCase())) {
+        return false;
+      }
       
       return true;
     });
